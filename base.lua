@@ -20,7 +20,9 @@ local function DynamicTextPrint(_cursX, _cursY, _text, _protocol) --function for
     a.setCursorPos(_cursX, _cursY)
     a.write("                                                                                                                                                                                                ") --clear 1 string
     a.setCursorPos(_cursX, _cursY)
+    a.setTextColor(colors.green )
     a.write(_text)
+    a.setTextColor(colors.blue )
     a.write(receiveData) 
 end
 
@@ -39,6 +41,7 @@ end
 
 
 while true do
+    a.setTextColor(colors.orange)
     a.write("drone_1:")
     DynamicTextPrint(3, 2, "fuel: ", "fuel")
     DynamicTextPrint(3, 3, "position: ", "coords")
