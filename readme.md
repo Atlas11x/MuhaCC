@@ -5,3 +5,4 @@
 4. Start all files on all devices
 5. Control the turtle by using PPC. Use keys "w", "a", "s", "d", space and shift 
 6. You can monitor parametrs on big display
+7. Update id's in files.
