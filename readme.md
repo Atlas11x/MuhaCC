@@ -6,5 +6,5 @@
 4. Update id's in files. In file "control_panel.lua" replace 28 on your turtle id. In file "drone.lua" replace 16 your computer with big display id. In "base.lua" replace 28 on your turtle id.
 5. Control the turtle by using PPC. Use keys "w", "a", "s", "d", space and shift 
 6. You can monitor parametrs on big display
-7. Put 4 computers on difrent high and type "gps host (coordinates of computer)" on it
+7. Put 4 computers with rednet or ender modems on difrent high and type "gps host (coordinates of computer)" on it
 8. Start all files on all devices
