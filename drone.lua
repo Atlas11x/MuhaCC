@@ -10,17 +10,18 @@ function collectAndSendData()
     	success, front = turtle.inspect()
     	success, up = turtle.inspectUp()
     	success, down = turtle.inspectDown()
-    	rednet.send(id, fuel, "fuel")
-    	rednet.send(id, position, "coords")
-    	rednet.send(id, front.name, "front")
-    	rednet.send(id, up.name, "up")
-    	rednet.send(id, down.name, "down")
+    	rednet.broadcast(fuel, "fuel")
+    	rednet.broadcast(position, "coords")
+    	rednet.broadcast(front.name, "front")
+    	rednet.broadcast(up.name, "up")
+    	rednet.broadcast(down.name, "down")
     	sleep(0)	
     end
 end
 
 --stream2
 function control()
+    facing = 0
     while true do
         idCheck, command = rednet.receive("drone1")
         if (command == "w") then
@@ -31,11 +32,19 @@ function control()
         end
         if (command == "a") then
             turtle.turnLeft()
-            rednet.send(id, "0", "compas")
+            facing = facing - 1
+            if (facing == -2) then
+            	facing = 2
+            end 
+            rednet.send(id, facing, "compas")
         end
         if (command == "d") then
             turtle.turnRight()
-            rednet.send(id, "1", "compas")
+            facing = facing + 1
+            if (facing == 3) then
+            	facing = -1
+            end 
+            rednet.send(id, facing, "compas")
         end
         if (command == "q") then
             turtle.up()
@@ -43,6 +52,7 @@ function control()
         if (command == "e") then
             turtle.down()
         end
+        
     end
 end
 parallel.waitForAll(control, collectAndSendData)
