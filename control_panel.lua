@@ -18,39 +18,39 @@ while true do
     --print("debug:", tostring(key))
     
     if (key == 87) then
-    	term.setCursorPos(14, 5)
+    	term.setCursorPos(13, 5)
         term.write("^")
-        term.setCursorPos(14, 6)
+        term.setCursorPos(13, 6)
         term.write("|")
         rednet.send(id, "w", "drone1")
     end
     if (key == 68) then
-    	term.setCursorPos(14, 6)
+    	term.setCursorPos(13, 6)
         term.write("-->")
         rednet.send(id, "d", "drone1")
     end
     if (key == 65) then
-    	term.setCursorPos(14, 6)
+    	term.setCursorPos(12, 6)
         term.write("<--")
         rednet.send(id, "a", "drone1")
     end
 
     if (key == 83) then
-    	term.setCursorPos(14, 6)
+    	term.setCursorPos(13, 6)
         term.write("|")
-        term.setCursorPos(14, 7)
+        term.setCursorPos(13, 7)
         term.write("V")
         rednet.send(id, "s", "drone1")
     end
     	
     if (key == 32) then
-    	term.setCursorPos(14, 6)
+    	term.setCursorPos(13, 6)
         term.write("up")
         rednet.send(id, "q", "drone1")
     end
     
     if (key == 340 or key == 344) then
-    	term.setCursorPos(14, 6)
+    	term.setCursorPos(13, 6)
         term.write("down")
         rednet.send(id, "e", "drone1")
     end

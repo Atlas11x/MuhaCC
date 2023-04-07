@@ -13,6 +13,9 @@ local a = peripheral.wrap("right")
 --startup
 rednet.open("top")
 a.setCursorPos(1,1)
+a.setTextColor(colors.orange)
+a.write("drone_1:")
+a.setTextColor(colors.white)
 
 --functions:
 local function DynamicTextPrint(_cursX, _cursY, _text, _protocol) --function for display text from rednet
@@ -53,7 +56,7 @@ function ending() --for normal end of main cycle
 end
 
 
-function stream2()
+function stream1()
 while true do
     id, ds = rednet.receive("compas")
     if (ds == 0) then
@@ -75,16 +78,40 @@ while true do
 end
 end
 
-function stream1 ()
+function stream2()
 while true do
-    a.setTextColor(colors.orange)
-    a.write("drone_1:")
-    DynamicTextPrint(3, 2, "fuel: ", "fuel")
-    DynamicTextPrint(3, 3, "position: ", "coords")
-    DynamicTextPrint(3, 4, "blok over: ", "up")
-    DynamicTextPrint(3, 5, "block in front of: ", "front")
     DynamicTextPrint(3, 6, "block under: ", "down")
-    ending()
 end
 end
-parallel.waitForAll(stream1, stream2)
+
+function stream3()
+    while true do
+        DynamicTextPrint(3, 2, "fuel: ", "fuel")
+end
+end
+
+function stream4()
+    while true do
+        DynamicTextPrint(3, 3, "position: ", "coords")
+end
+end
+
+function stream5()
+    while true do
+        DynamicTextPrint(3, 3, "position: ", "coords")
+end
+end
+
+function stream6()
+    while true do
+        DynamicTextPrint(3, 4, "blok over: ", "up")
+end
+end
+
+
+function stream7()
+    while true do
+        DynamicTextPrint(3, 5, "block in front of: ", "front")
+end
+end
+parallel.waitForAll(stream1, stream2, stream3, stream4, stream5, stream6, stream7)
