@@ -1,4 +1,4 @@
-#Documentation
+# Documentation
 *Don't use this program on the BNW server whithout my permission
 1. Put file "base.lua" on computer with rednet or ender modem on top and big monitor on right
 2. Put file "control_panel.lua" on pocket PC
